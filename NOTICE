@@ -1,0 +1,26 @@
+kmp-skill-library
+Copyright 2026 Kevin Ching
+
+This project is a derivative work based on:
+
+  awesome-android-agent-skills
+  Copyright 2025 new-silvermoon
+  https://github.com/new-silvermoon/awesome-android-agent-skills
+  Licensed under the Apache License, Version 2.0
+
+The original Android skills have been adapted and extended for
+Kotlin Multiplatform (KMP) and Compose Multiplatform (CMP).
+Changes include:
+
+  - Replaced Android-only architecture patterns with KMP Clean Architecture
+  - Replaced Room with SQLDelight for multiplatform persistence
+  - Replaced Retrofit with Ktor Client for multiplatform networking
+  - Replaced Hilt with Koin for multiplatform dependency injection
+  - Adapted navigation, UI, testing, and build skills for commonMain
+  - Added new skills: kmp-expect-actual, kmp-di-koin, kmp-networking-ktor,
+    kmp-testing, kmp-architecture, kmp-data-layer, cmp-navigation
+
+This product includes software developed under the Apache License 2.0.
+You may obtain a copy of the License at:
+
+  http://www.apache.org/licenses/LICENSE-2.0
