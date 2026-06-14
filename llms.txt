@@ -1,0 +1,48 @@
+# kmp-skill-library
+
+> A library of 19 Claude AI skills covering the full Kotlin Multiplatform (KMP) and Compose Multiplatform (CMP) development lifecycle for Android and iOS — architecture, concurrency, networking, UI, performance, testing, migration, and build tooling.
+
+These skills are designed to be loaded into Claude (or any LLM supporting system-prompt injection) to turn it into a specialist assistant for KMP/CMP projects. Each skill is a self-contained SKILL.md file with best practices, decision tables, code patterns, and migration guides.
+
+## Architecture
+
+- [kmp-architecture](skills/kmp-architecture/SKILL.md): KMP Clean Architecture with inward-flowing layers (UI → Domain → Data → Platform), ViewModel in commonMain, Koin DI wiring, and full module structure for :shared, :androidApp, :iosApp.
+- [kmp-data-layer](skills/kmp-data-layer/SKILL.md): Data layer deep-dive — Repository pattern, SQLDelight, MultiplatformSettings, Ktor, and offline-first sync strategies (stale-while-revalidate, optimistic writes).
+- [android-viewmodel](skills/android-viewmodel/SKILL.md): StateFlow/SharedFlow best practices in KMP ViewModels, including the critical difference between collectAsState() and collectAsStateWithLifecycle().
+
+## Concurrency & Networking
+
+- [kotlin-concurrency-expert](skills/kotlin-concurrency-expert/SKILL.md): KMP coroutine review and remediation — ANR bugs, memory leaks, race conditions, dispatcher injection, exception handling, callbackFlow, and scope guidelines.
+- [android-coroutines](skills/android-coroutines/SKILL.md): Android-specific coroutine patterns — repeatOnLifecycle, viewModelScope, cooperative cancellation, and testing with runTest.
+- [kmp-networking-ktor](skills/kmp-networking-ktor/SKILL.md): Ktor Client in commonMain — OkHttp/Darwin engines via Koin, ContentNegotiation with kotlinx.serialization, Bearer auth with token refresh, and a Retrofit→Ktor migration table.
+
+## KMP Specifics
+
+- [kmp-expect-actual](skills/kmp-expect-actual/SKILL.md): Decision guide for expect/actual vs. interface + Koin DI, with a decision table covering 11+ common platform features.
+- [kmp-di-koin](skills/kmp-di-koin/SKILL.md): Full Koin setup for KMP — shared modules in commonMain, platform modules in androidMain/iosMain, iOS initKoin() for Swift interop, koinViewModel() in composables, and a Hilt→Koin migration table.
+
+## UI
+
+- [compose-ui](skills/compose-ui/SKILL.md): CMP UI best practices — state hoisting, modifier ordering, remember/derivedStateOf for performance, lambda stability, MaterialTheme theming, and preview annotations.
+- [cmp-navigation](skills/cmp-navigation/SKILL.md): Type-safe navigation with @Serializable route data classes, NavHost in commonMain, bottom nav with NavigationSuiteScaffold, SavedStateHandle for ViewModel args, and deep link setup.
+- [coil-compose](skills/coil-compose/SKILL.md): Coil 3 image loading for KMP — AsyncImage, rememberAsyncImagePainter, singleton ImageLoader via Koin, and lazy list performance rules.
+- [android-accessibility](skills/android-accessibility/SKILL.md): Accessibility audit checklist for Compose — content descriptions, 48×48dp touch targets, WCAG AA contrast ratios, focus order, semantic headings, and state descriptions.
+
+## Performance
+
+- [compose-performance-audit](skills/compose-performance-audit/SKILL.md): Audits recomposition storms, unstable keys, and heavy composition work. Profiling guidance for Layout Inspector, Perfetto, and Instruments, plus a type stability checklist.
+- [gradle-build-performance](skills/gradle-build-performance/SKILL.md): Gradle build optimization — configuration cache, build cache, KSP migration from kapt, KMP hierarchy templates, and CI remote cache setup.
+
+## Testing & Automation
+
+- [kmp-testing](skills/kmp-testing/SKILL.md): Three-tier testing pyramid — commonTest with kotlin.test and Turbine, androidTest with Compose rules and Roborazzi, and iOS tests with XCTest and swift-snapshot-testing.
+- [android-emulator-skill](skills/android-emulator-skill/SKILL.md): Python/shell automation suite for Android — health checks, build & run, semantic UI navigation by text/resource-id, gesture simulation, and AVD management.
+
+## Migration
+
+- [xml-to-compose-migration](skills/xml-to-compose-migration/SKILL.md): Systematic XML→Compose conversion with full mapping tables (layouts, widgets, attributes), incremental migration using ComposeView/AndroidView interop, and LiveData→StateFlow migration.
+- [rxjava-to-coroutines-migration](skills/rxjava-to-coroutines-migration/SKILL.md): RxJava→Coroutines migration — type mappings (Single→suspend, Observable→Flow), Subject→hot flow conversions, operator equivalents, and a 6-step migration workflow.
+
+## Build & Tooling
+
+- [android-gradle-logic](skills/android-gradle-logic/SKILL.md): Convention plugins in the build-logic composite build, Version Catalog (libs.versions.toml), AndroidApplicationConventionPlugin, KmpLibraryConventionPlugin, and applyHierarchyTemplate configuration.
